@@ -34,4 +34,8 @@ ssh -N -f -L localhost:8889:localhost:8889 dhjordan@gate.cloudveneto.it
 fuser 8889/tcp #checks what is on the port
 fuser -k 8889/tcp
 
+#run notebook server
+nohup jupyter notebook --no-browser -port=8887 & 
+
+
 
