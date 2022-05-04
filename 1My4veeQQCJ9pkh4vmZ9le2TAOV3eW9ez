@@ -1,0 +1,37 @@
+setting up remote working enviroment
+
+#install docker
+wget https://download.docker.com/linux/ubuntu/dists/focal/pool/stable/amd64/docker-ce-cli_19.03.10~3-0~ubuntu-focal_amd64.deb
+sudo dpkg -i docker-ce-cli_19.03.10~3-0~ubuntu-focal_amd64.deb
+#make it run without sudo
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
+docker run hello-world
+#make it use a different directory for storage
+touch /etc/docker/daemon.json
+printf '%s\n' '{' '"data-root": "/path/to/your/dockerstorage"' '}' >/etc/docker/daemon.json
+
+
+#install jupyter with conda
+conda install -c conda-forge jupyter
+
+#installing r to work with jupyter using anaconda
+conda create --name r-env
+conda install r-essentials
+#installing kernal for jupyter notebook
+conda install -c r r-irkernel
+
+#install in base. Will put all available kernels across multiple conda enviroments in the jupyter drop down menue
+conda install -c conda-forge nb_conda_kernels
+
+
+#port forward
+ssh -N -f -L localhost:8889:localhost:8889 dhjordan@gate.cloudveneto.it
+
+
+#remove port assignment
+fuser 8889/tcp #checks what is on the port
+fuser -k 8889/tcp
+
+
