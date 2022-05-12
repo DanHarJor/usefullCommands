@@ -13,6 +13,12 @@ touch /etc/docker/daemon.json
 printf '%s\n' '{' '"data-root": "/path/to/your/dockerstorage"' '}' >/etc/docker/daemon.json
 
 
+#install anaconda
+#download file from here - https://www.anaconda.com/products/distribution#linux
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+sh Anaconda3-2022.05-Linux-x86_64.sh
+# if using a VM with a botable volume just use the default instalation directory. Therwise specify the location of a mounted volume. Otherwise Anaconda will take up the precious 25GB of the VM. 
+
 #install jupyter with conda
 conda install -c conda-forge jupyter
 
@@ -35,7 +41,7 @@ fuser 8889/tcp #checks what is on the port
 fuser -k 8889/tcp
 
 #run notebook server
-nohup jupyter notebook --no-browser -port=8887 & 
+nohup jupyter notebook --no-browser --port=9991 & 
 
 
 
