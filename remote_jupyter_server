@@ -43,5 +43,8 @@ fuser -k 8889/tcp
 #run notebook server
 nohup jupyter notebook --no-browser --port=9991 & 
 
+#using google drive from command line
+https://medium.com/geekculture/how-to-upload-file-to-google-drive-from-linux-command-line-69668fbe4937
+https://github.com/prasmussen/gdrive
 
 
