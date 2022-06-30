@@ -47,4 +47,7 @@ nohup jupyter notebook --no-browser --port=9991 &
 https://medium.com/geekculture/how-to-upload-file-to-google-drive-from-linux-command-line-69668fbe4937
 https://github.com/prasmussen/gdrive
 
-
+#mount folder over ssh with sshfs
+sudo apt install sshfs
+sudo sshfs -o allow_other,default_permissions sammy@your_other_server:~/remoteFolder ~/localFolder
+sudo sshfs -o allow_other,default_permissions,IdentityFile=/home/ubuntu/dasktest ubuntu@10.67.22.197:/home/ubuntu/daskShared_remote /home/ubuntu/daskShared_local
